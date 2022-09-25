@@ -182,8 +182,22 @@ input[type=password] {
 /* //////////////////////////////////// */
 
 
-.registerclass:hover {
+/* .registerclass:hover {
     cursor: pointer;
     text-decoration: underline;
     transition: all 0.5s;
+} */
+
+.createaccountdiv>a{
+    text-decoration: none;
+}
+.createaccountdiv>a>h6{
+    color: black;
+
+}
+
+.createaccountdiv>a>h6:hover{
+    cursor: pointer;
+    text-decoration: underline;
+
 }

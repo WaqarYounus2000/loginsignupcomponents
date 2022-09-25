@@ -50,10 +50,3 @@ loginbutton.onclick = () => {
 }
 
 
-
-let register = document.getElementById("registerID");
-register.onclick = ()=>{
-    window.location.replace('/signup/signup.html');
-    console.log('location changed')
-
-}
