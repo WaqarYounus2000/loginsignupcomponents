@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getDatabase, ref, set  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBd4jTG7RWe6guSsNMwCESg-SmgEygcR2c",
@@ -18,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const auth = getAuth();
+const database = getDatabase();
 
 
 
@@ -28,11 +30,16 @@ signupbutton.onclick = () => {
     let password = document.getElementById('passID');
     createUserWithEmailAndPassword(auth, email.value, password.value)
     .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
-        console.log('--user registration Successfull-- ',user);
-        email.value = '';
-        password.value = '';
+        console.log('////////////////////////////////////////////////////////////////////')
+        console.log("Email -->"+email.value,"password-->"+password.value)
+        set(ref(database, `users/${user.uid}`), {
+            email: email.value,
+            password: password.value,
+          });
+        
+        // email.value = '';
+        // password.value = '';
         swal("Congratulation!", "Your Account Has been Created Successfully!", "success");
         sendEmailVerification(auth.currentUser)
           .then(() => {
@@ -40,7 +47,7 @@ signupbutton.onclick = () => {
           })
           .catch((err) => console.log(err));
        
-        // ...
+    
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -71,3 +78,22 @@ passeye.onmouseup=()=>{
     document. querySelectorAll('input[type="text"]')[0].type = 'password';
     passeye.style.opacity = '0.3';
 }
+
+
+// document.querySelector('#signupbuttonID').disabled = true;
+// const button = document.signupbuttonID('signupbuttonID')
+// button.disabled = true;
+// console.log(document.querySelectorAll('input[type="checkbox"]')[0].checked)
+
+// if (document.querySelectorAll('input[type="checkbox"]')[0].checked){
+
+//     // const button = document.signupbuttonID('signupbuttonID')
+//     button.disabled = false;
+//     console.log('disabled')
+// }
+   
+    
+
+
+
+
