@@ -175,10 +175,13 @@ input[type=email] {
     padding-left: 25px;
 }
 
-input[type=password] {
+/* input[type=password] {
+    padding-left: 25px;
+} */
+#passID{
+    
     padding-left: 25px;
 }
-
 /* //////////////////////////////////// */
 
 
@@ -188,16 +191,29 @@ input[type=password] {
     transition: all 0.5s;
 } */
 
-.createaccountdiv>a{
+.createaccountdiv>a {
     text-decoration: none;
 }
-.createaccountdiv>a>h6{
+
+.createaccountdiv>a>h6 {
     color: black;
 
 }
 
-.createaccountdiv>a>h6:hover{
+.createaccountdiv>a>h6:hover {
     cursor: pointer;
     text-decoration: underline;
 
+}
+
+#passwordEye:hover {
+    cursor: pointer;
+}
+
+#passwordEye {
+    bottom: 25px;
+    position: absolute;
+    right: 25px;
+    opacity: 0.3;
+    font-size: 15px;
 }

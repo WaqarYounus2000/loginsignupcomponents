@@ -50,3 +50,17 @@ loginbutton.onclick = () => {
 }
 
 
+
+
+const passeye = document.getElementById('passwordEye');
+passeye.onmousedown=()=>{
+    // console.log('clicked')
+    document. querySelectorAll('input[type="password"]')[0].type = 'text';
+    passeye.style.opacity = '1';
+    
+}
+passeye.onmouseup=()=>{
+    console.log('clicked')
+    document. querySelectorAll('input[type="text"]')[0].type = 'password';
+    passeye.style.opacity = '0.3';
+}

@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBd4jTG7RWe6guSsNMwCESg-SmgEygcR2c",
@@ -34,6 +34,11 @@ signupbutton.onclick = () => {
         email.value = '';
         password.value = '';
         swal("Congratulation!", "Your Account Has been Created Successfully!", "success");
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+            console.log("Email sent");
+          })
+          .catch((err) => console.log(err));
        
         // ...
     })
@@ -52,3 +57,17 @@ signupbutton.onclick = () => {
 
 
 
+
+
+const passeye = document.getElementById('passwordEye');
+passeye.onmousedown=()=>{
+    // console.log('clicked')
+    document. querySelectorAll('input[type="password"]')[0].type = 'text';
+    passeye.style.opacity = '1';
+    
+}
+passeye.onmouseup=()=>{
+    console.log('clicked')
+    document. querySelectorAll('input[type="text"]')[0].type = 'password';
+    passeye.style.opacity = '0.3';
+}
