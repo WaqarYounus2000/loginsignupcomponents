@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword,signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword,  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBd4jTG7RWe6guSsNMwCESg-SmgEygcR2c",
     authDomain: "loginsignup-eef41.firebaseapp.com",
@@ -23,19 +23,21 @@ const auth = getAuth();
 const loginbutton = document.getElementById('loginbuttonID');
 
 
+// window.onload = () => {
 
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         const uid = user.uid;
-//         alert('user is logged in ' + uid)
-//         window.location.replace('profile.html');
-//     } 
-//     else {
-//         window.location.replace('profile.html');
-//         alert('user is logged out ');
-//     }
-// })
+//     onAuthStateChanged(auth, (user) => {
+//         if (user) {
+//             const uid = user.uid;
+//             alert('user is logged in ' + uid)
+//             window.location.replace('profile.html');
+//         } 
+//         else {
+//             alert('user is logged out ');
+//             window.location.replace('https://www.google.com');
+//         }
+//     })
 
+// }
 loginbutton.onclick = () => {
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
@@ -46,7 +48,7 @@ loginbutton.onclick = () => {
 
             const user = userCredential.user;
             swal("Log in successfull!", '', "success");
-            
+
 
         })
         .catch((error) => {
@@ -71,9 +73,9 @@ loginbutton.onclick = () => {
 
 
 const logoutbutton = document.getElementById('logoutbutton');
-logoutbutton.onclick = ()=>{
-    auth.signOut().then(()=>{
-        alert('úser logged out')
+logoutbutton.onclick = () => {
+    auth.signOut().then(() => {
+        alert('user logged out')
     })
 }
 
