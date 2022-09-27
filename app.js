@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBd4jTG7RWe6guSsNMwCESg-SmgEygcR2c",
     authDomain: "loginsignup-eef41.firebaseapp.com",
@@ -28,11 +28,11 @@ loginbutton.onclick = () => {
     console.log(email.value, password.value)
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
-            // Signed in 
+
             const user = userCredential.user;
-            console.log(user)
             swal("Log in successfull!", '', "success");
-            // ...
+            
+
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -43,8 +43,8 @@ loginbutton.onclick = () => {
             swal({
                 icon: "error",
                 title: errorCode
-              });
-            
+            });
+
         });
 
 }
@@ -53,14 +53,14 @@ loginbutton.onclick = () => {
 
 
 const passeye = document.getElementById('passwordEye');
-passeye.onmousedown=()=>{
+passeye.onmousedown = () => {
     // console.log('clicked')
-    document. querySelectorAll('input[type="password"]')[0].type = 'text';
+    document.querySelectorAll('input[type="password"]')[0].type = 'text';
     passeye.style.opacity = '1';
-    
+
 }
-passeye.onmouseup=()=>{
+passeye.onmouseup = () => {
     console.log('clicked')
-    document. querySelectorAll('input[type="text"]')[0].type = 'password';
+    document.querySelectorAll('input[type="text"]')[0].type = 'password';
     passeye.style.opacity = '0.3';
 }

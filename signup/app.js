@@ -25,21 +25,20 @@ const database = getDatabase();
 
 const signupbutton = document.getElementById('signupbuttonID');
 
+
 signupbutton.onclick = () => {
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
     createUserWithEmailAndPassword(auth, email.value, password.value)
     .then((userCredential) => {
         const user = userCredential.user;
-        console.log('////////////////////////////////////////////////////////////////////')
-        console.log("Email -->"+email.value,"password-->"+password.value)
+        
+        
         set(ref(database, `users/${user.uid}`), {
             email: email.value,
             password: password.value,
           });
-        
-        // email.value = '';
-        // password.value = '';
+       
         swal("Congratulation!", "Your Account Has been Created Successfully!", "success");
         sendEmailVerification(auth.currentUser)
           .then(() => {
@@ -63,6 +62,14 @@ signupbutton.onclick = () => {
 }
 
 
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
 
