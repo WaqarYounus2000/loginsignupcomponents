@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 import { getDatabase, ref, set  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-
+import { doc, setDoc,getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBd4jTG7RWe6guSsNMwCESg-SmgEygcR2c",
     authDomain: "loginsignup-eef41.firebaseapp.com",
@@ -20,6 +20,7 @@ const analytics = getAnalytics(app);
 
 const auth = getAuth();
 const database = getDatabase();
+const db = getFirestore();
 
 
 
@@ -30,15 +31,14 @@ signupbutton.onclick = () => {
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
     createUserWithEmailAndPassword(auth, email.value, password.value)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
         const user = userCredential.user;
-        
-        
-        set(ref(database, `users/${user.uid}`), {
-            email: email.value,
-            password: password.value,
-          });
-       
+        // storing data to firestore database
+        await setDoc(doc(db, "users", user.uid), {
+          Email:email.value,
+          Password:password.value,
+        });
+           
         swal("Congratulation!", "Your Account Has been Created Successfully!", "success");
         sendEmailVerification(auth.currentUser)
           .then(() => {
