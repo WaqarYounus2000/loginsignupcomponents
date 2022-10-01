@@ -1,16 +1,16 @@
-import { signupfunction } from "../firebase.js"
+import { signupfunction } from './firebase1.js'
+
 
 
 
 const signupbutton = document.getElementById('signupbuttonID');
+
 signupbutton.onclick = () => {
  
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
-    console.log('signup horaha hai')
+    console.log(email.value,password.value)
     signupfunction(email.value,password.value);
-
-    console.log('signup hogya hai');
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
