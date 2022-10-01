@@ -23,8 +23,11 @@ loginbutton.onclick = async () => {
     let password = document.getElementById('passID');
     // console.log(email.value, password.value)
 
-    let  gettingdata =  Loginfunction(email.value,password.value);
-    console.log('this line should be after data prining')
+    let  gettingdata =  await Loginfunction(email.value,password.value)
+        console.log('this line should be after data prining')
+        console.log('///////////////////////////////////////////////////////////////////////////////////////')
+
+    
 
 }
 
