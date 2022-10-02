@@ -69,7 +69,7 @@ function Loginfunction(email, password) {
             } else {
                 console.log("No such document!");
             }
-
+            
 
         })
         .catch((error) => {

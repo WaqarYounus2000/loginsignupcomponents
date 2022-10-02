@@ -1,4 +1,4 @@
-import {Loginfunction} from "./signup/firebase1.js"
+import { Loginfunction } from "./signup/firebase1.js"
 
 const loginbutton = document.getElementById('loginbuttonID');
 
@@ -21,13 +21,13 @@ const loginbutton = document.getElementById('loginbuttonID');
 loginbutton.onclick = async () => {
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
-    // console.log(email.value, password.value)
 
-    let  gettingdata =  await Loginfunction(email.value,password.value)
-        console.log('this line should be after data prining')
-        console.log('///////////////////////////////////////////////////////////////////////////////////////')
+    let gettingdata  =  Loginfunction(email.value, password.value);
+    console.log('this line should be after data printing');
+    console.log('///////////////////////////////////////////////////////////////////////////////////////');
+    console.log('data from server:' + gettingdata);
 
-    
+
 
 }
 
@@ -41,7 +41,7 @@ loginbutton.onclick = async () => {
 const logoutbutton = document.getElementById('logoutbutton');
 logoutbutton.onclick = () => {
     UserloggedOut();
-    
+
 }
 
 
