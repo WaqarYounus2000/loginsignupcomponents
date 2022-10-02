@@ -6,6 +6,12 @@ body {
     width: 100vw;
     height: 100vh;
 }
+.alternatebody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
 .forgerpassword {
     width: 80%;
@@ -35,7 +41,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    height: 365px;
+    height: 400px;
     width: 280px;
     font-family: Arial !important;
     border-top: 4px solid blue;
@@ -106,9 +112,10 @@ body {
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     flex-direction: column;
     position: relative;
+    width: 86%;
 }
 
 
@@ -160,7 +167,7 @@ body {
 
 .emailicon {
     position: absolute;
-    top: 23px;
+    top: 24px;
     left: 21px;
 }
 .passwordicon{
@@ -205,3 +212,111 @@ input[type=password]{
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* /////////////////////////////////////// signup finish///////////////////////////////////////// */
+.birthdate{
+    margin-top: 12px;
+    border: 2px solid  rgb(133, 133, 133);
+    padding: 7px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+input[type="date" i] {
+    border: none;
+}
+
+.genderdiv{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+    width: 80%;
+
+}
+
+.next{
+    display: flex;
+    justify-content: end;
+    padding: 7px;
+    width: 80%;
+    margin-top: 20px;
+
+}
+.buttonrightarrow{
+    background-color: transparent;
+    border: none;
+}
+.nextbutton{
+    opacity: 0.4;
+    font-size: 20px;
+}
+.nextbutton:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+#card1{
+    display: none;
+}
+.leftarrow{
+    opacity: 0.3;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 90%;
+}
+.leftarrow:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.phonenumber{
+    /* border: 2px solid red; */
+    margin-top: 24px;
+    width: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#phone{
+    padding: 8px;
+    width: 100%;
+}
+
+#phone:focus{
+    /* border: none; */
+    outline: none;
+}
+
+#fathernameID{
+    width: 93%;
+}
+#fullname{
+    width: 93%;
+}
+.div1{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    /* border: 2px solid red; */
+}
+.div2{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    /* border: 2px solid red; */
+}
+
+.inputclass{
+    width: 100%;
+    padding: 7px;
+}
+

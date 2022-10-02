@@ -21,14 +21,14 @@ const loginbutton = document.getElementById('loginbuttonID');
 loginbutton.onclick = async () => {
     let email = document.getElementById('EmailID');
     let password = document.getElementById('passID');
-
+    
     let gettingdata  =  Loginfunction(email.value, password.value);
     console.log('this line should be after data printing');
     console.log('///////////////////////////////////////////////////////////////////////////////////////');
     console.log('data from server:' + gettingdata);
-
-
-
+    
+    
+    
 }
 
 
@@ -41,7 +41,7 @@ loginbutton.onclick = async () => {
 const logoutbutton = document.getElementById('logoutbutton');
 logoutbutton.onclick = () => {
     UserloggedOut();
-
+    
 }
 
 
@@ -59,7 +59,7 @@ passeye.onmousedown = () => {
     console.log('clicked')
     document.querySelectorAll('input[type="password"]')[0].type = 'text';
     passeye.style.opacity = '1';
-
+    
 }
 passeye.onmouseup = () => {
     console.log('clicked')

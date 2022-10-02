@@ -24,7 +24,7 @@ const database = getDatabase();
 const db = getFirestore();
 
 
-function signupfunction(email, password) {
+function signupfunction(email, password,fullname,fathername,dateofbirth,phonenumber) {
     createUserWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
             const user = userCredential.user;
@@ -32,6 +32,10 @@ function signupfunction(email, password) {
             await setDoc(doc(db, "users", user.uid), {
                 Email: email,
                 Password: password,
+                Fullname:fullname,
+                FatherName:fathername,
+                Dateofbirth:dateofbirth,
+                Phonenumber:phonenumber,
             });
             swal("Congratulation!", "Your Account Has been Created Successfully!", "success");
             sendEmailVerification(auth.currentUser)
